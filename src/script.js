@@ -16,17 +16,15 @@ function changerPlayer() {
 }
 
 function addPlayerCheck(event) {
-  const player = atualPlayer;
   const bloco = event.target
-  // if (bloco.player.value !== 'velha') {
-  //   alert('Outro player ocupou esta casa!')
-  // } else {
+  const playerBlock = bloco.innerHTML;
+  console.log(playerBlock);
+  if (playerBlock !== '-') {
+    return alert('Outro player ocupou esta casa!')
+  } else {
     bloco.classList.add('activeO')
-    // bloco.style.backgroundColor = 'white';
-    bloco.player = player;
     bloco.innerHTML = atualPlayer;
-    console.log(bloco.player.value);
-  // }
+  }
   changerPlayer();
 };
 
