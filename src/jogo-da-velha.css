@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  box-sizing: 0;
+}
+
+main { 
+  background-color: grey;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+#tabela {
+  display: flex;
+}
+
+#coluna1 {
+  background-color: aqua;
+  margin-top: 25px;
+  height: 300px;
+  width: 100px;
+}
+
+#coluna2 {
+  background-color: black;
+  margin-top: 25px;
+  height: 300px;
+  width: 100px;
+}
+
+#coluna3 {
+  background-color: white;
+  margin-top: 25px;
+  height: 300px;
+  width: 100px;
+}
+
+.coluna1 {
+  border: 1px solid black;
+  height: 98px;
+}
+
