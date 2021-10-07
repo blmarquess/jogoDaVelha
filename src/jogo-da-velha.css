@@ -61,3 +61,15 @@ main {
 #linha3-2 {
   border-block: 1px solid black;
 }
+
+.activeO{
+  background-color: white;
+}
+
+.activeX{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: center;
+  font-size: 500%;
+}
