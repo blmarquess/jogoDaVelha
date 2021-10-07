@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 * {
   margin: 0;
   box-sizing: 0;
@@ -5,50 +7,76 @@
 
 h1 {
   text-align: center;
-  padding: 30px;
+  padding: 1rem;
+  color: rgba(255, 250, 254, 0.925);
+  background-color: teal;
+  border-radius: 1.4rem;
+  margin-top: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-self:center;
+  align-content: center;
+  padding: 1rem;
+  background-color: rgba(170, 178, 201, 0.342);
 }
 
 main { 
   background-color: rgba(255, 250, 254, 0.925);
   color: rgba(255, 250, 254, 0.925);
-  height: 500px;
+  height: 90vh;
+  width: 90vw;
+  max-width: 700px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-self: stretch;
+  font-family: 'Poppins', sans-serif;
+  /* padding: 0.3rem; */
+  border-radius: 1.4rem;
+  outline-style: groove 1px;
+  outline-color: thistle 1px;
 }
 
 #tabela {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 1.4rem;
 }
 
 #coluna1 {
-  margin-top: 25px;
-  height: 300px;
-  width: 100px;
+  margin-top:2rem;
+  height: 32vh;
+  width:  6rem;
 }
 
 #coluna2 {
-  margin-top: 25px;
-  height: 300px;
-  width: 100px;
+  margin-top: 2rem;
+  height: 30vh;
+  width:  6rem;
   border-inline: 1px solid black;
 }
 
 #coluna3 {
-  margin-top: 25px;
-  height: 300px;
-  width: 100px;
+  margin-top: 2rem;
+  height: 32vh;
+  width: 6rem;
 }
 
 .coluna1 {
-  height: 98px;
+  height: 10vh;
 }
 
 .coluna2 {
-  height: 98px;
+  height: 10vh;
 }
 
 .coluna3 {
-  height: 98px;
+  height: 10vh;
 }
 
 #a-2 {
@@ -63,9 +91,17 @@ main {
   border-block: 1px solid black;
 }
 
-.activeO{
-  background-color: white;
-  color:teal;
+.win {
+  color: rgba(255, 250, 254, 0.925);
+  text-align: center;
+  font-weight: 500;
+  outline: lightpink;
+  padding: 1rem;
+
+}
+
+.activeO {
+  color: teal;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -73,12 +109,28 @@ main {
   font-size: 5rem;
 }
 
-.activeX{
-  background-color: white;
+.activeX {
   color: rgba(255, 115, 0, 0.932);
   display: flex;
   justify-content: center;
   align-items: flex-end;
   align-self: center;
   font-size: 5rem;
+}
+
+.placar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: black;
+  background-color: rgba(241, 118, 16, 0.664);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.alert {
+  color: red;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 2rem;
 }

@@ -5,6 +5,10 @@ const make = (p) => document.createElement(p);
 const playerStyler1 = `<i class="far fa-times-circle activeX"></i>`;
 const playerStyler2 = `<i class="far fa-circle activeO"></i>`
 
+function checkPlayerWin() {
+  console.log('Alguem ganou!');
+}
+
 let atualPlayer = playerStyler1;
 
 function changerPlayer() {
@@ -18,7 +22,6 @@ function changerPlayer() {
 function addPlayerCheck(event) {
   const bloco = event.target
   const playerBlock = bloco.innerHTML;
-  console.log(playerBlock);
   if (playerBlock !== '-') {
     return alert('Outro player ocupou esta casa!')
   } else {
@@ -26,6 +29,7 @@ function addPlayerCheck(event) {
     bloco.innerHTML = atualPlayer;
   }
   changerPlayer();
+  checkPlayerWin()
 };
 
 const player1 = {
@@ -49,7 +53,3 @@ const observer = () => {
 }
 
 observer();
-
-function checkPlayerWin() {
-  
-}
