@@ -1,0 +1,9 @@
+.activeO{
+  padding: 10%;
+  background-color: red;
+}
+
+.activeX{
+  padding: 10%;
+  caret-color: black;
+}
