@@ -2,18 +2,25 @@ const query = (p) => document.querySelector(p);
 const queryAll = (p) => document.querySelectorAll(p);
 const make = (p) => document.createElement(p);
 
-const playerStyler1 = `<div><i class="far fa-times-circle"></i></div>`;
+const playerStyler1 = `<i class="far fa-times-circle activeX"></i>`;
 
-const playerStyler2 = `<div><i class="far fa-circle"></i></div>`
-
+const playerStyler2 = `<i class="far fa-circle activeO"></i>`
+const atualPlayer = playerStyler1;
 
 
 function addPlayerCheck(event) {
-  const alvoBloco = event.target
-  alvoBloco.classList.add('activeX')
-  alvoBloco.style.backgroundColor = 'white';
-  alvoBloco.innerHTML = playerStyler1;
-  console.log('clicou');
+  const player = atualPlayer;
+
+  const bloco = event.target
+  // if (bloco.player.value !== 'velha') {
+  //   alert('Outro player ocupou esta casa!')
+  // } else {
+    bloco.classList.add('activeO')
+    bloco.style.backgroundColor = 'white';
+    bloco.player = player;
+    bloco.innerHTML = playerStyler2;
+    console.log(bloco.player.value);
+  // }
 };
 
 const player1 = {
