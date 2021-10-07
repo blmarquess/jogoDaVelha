@@ -3,6 +3,11 @@
   box-sizing: 0;
 }
 
+h1 {
+  text-align: center;
+  padding: 30px;
+}
+
 main { 
   background-color: grey;
   height: 500px;
@@ -15,28 +20,44 @@ main {
 }
 
 #coluna1 {
-  background-color: aqua;
   margin-top: 25px;
   height: 300px;
   width: 100px;
 }
 
 #coluna2 {
-  background-color: black;
   margin-top: 25px;
   height: 300px;
   width: 100px;
+  border-inline: 1px solid black;
 }
 
 #coluna3 {
-  background-color: white;
   margin-top: 25px;
   height: 300px;
   width: 100px;
 }
 
 .coluna1 {
-  border: 1px solid black;
   height: 98px;
 }
 
+.coluna2 {
+  height: 98px;
+}
+
+.coluna3 {
+  height: 98px;
+}
+
+#linha1-2 {
+  border-block: 1px solid black;
+}
+
+#linha2-2 {
+  border-block: 1px solid black;
+}
+
+#linha3-2 {
+  border-block: 1px solid black;
+}
