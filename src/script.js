@@ -9,6 +9,14 @@ function checkPlayerWin() {
   console.log('Alguem ganou!');
 }
 
+const erroBloco = () => {
+  const loc = query('.alert');
+  loc.innerHTML = `<p class="alert-red"> Outro Player ja marcou este campo !</p>`;
+  setTimeout(() => {
+    loc.innerHTML = `<p class="alert-blank> </p>`;
+  }, 2500);
+}
+
 let atualPlayer = playerStyler1;
 
 function changerPlayer() {
@@ -23,13 +31,13 @@ function addPlayerCheck(event) {
   const bloco = event.target
   const playerBlock = bloco.innerHTML;
   if (playerBlock !== '-') {
-    return alert('Outro player ocupou esta casa!')
+    return erroBloco();
   } else {
     bloco.classList.add('activeO')
     bloco.innerHTML = atualPlayer;
   }
   changerPlayer();
-  checkPlayerWin()
+  checkPlayerWin();
 };
 
 const player1 = {
