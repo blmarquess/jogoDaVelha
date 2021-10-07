@@ -9,7 +9,7 @@ h1 {
 }
 
 main { 
-  background-color: grey;
+  background-color: rgba(250, 250, 250, 0.863);
   height: 500px;
   display: flex;
   justify-content: center;
@@ -29,7 +29,6 @@ main {
   margin-top: 25px;
   height: 300px;
   width: 100px;
-  border-inline: 1px solid black;
 }
 
 #coluna3 {
