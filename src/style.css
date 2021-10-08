@@ -67,15 +67,7 @@ main {
   width: 6rem;
 }
 
-.coluna1 {
-  height: 10vh;
-}
-
-.coluna2 {
-  height: 10vh;
-}
-
-.coluna3 {
+.bloco{
   height: 10vh;
 }
 
@@ -89,15 +81,6 @@ main {
 
 #c-2 {
   border-block: 1px solid black;
-}
-
-.win {
-  color: rgba(255, 250, 254, 0.925);
-  text-align: center;
-  font-weight: 500;
-  outline: lightpink;
-  padding: 1rem;
-
 }
 
 .activeO {
@@ -138,4 +121,22 @@ main {
 .alert-red{
   background-color: rgba(255, 142, 122, 0.753);
   border-radius: 2rem;
+}
+
+.win {
+  color: rgba(255, 250, 254, 0.925);
+  text-align: center;
+  font-weight: 500;
+  outline: lightpink;
+  padding: 1rem;
+}
+
+.winner{
+  background-color: rgba(126, 255, 122, 0.788);
+  border-radius: 2rem;
+  color:rgb(3, 82, 3);
+  text-align: center;
+  font-weight: 500;
+  outline: lightpink;
+  padding: 1rem;
 }
