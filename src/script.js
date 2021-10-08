@@ -93,7 +93,7 @@ const playWin = (play) => {
       bloco.setAttribute('player', 'velha');
       bloco.addEventListener('click', addPlayerCheck);
     })
-  }, 3000);
+  }, 2950);
 
 }
 
