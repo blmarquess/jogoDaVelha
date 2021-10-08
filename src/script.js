@@ -17,7 +17,7 @@ const player2 = {
   style: `<i class="far fa-circle activeO"></i>`,
   score: 0,
 };
-const gameOver = false;
+const gameOver = {status: false};
 
 // regra de jogo
 function checkPlayerWin(e) {
@@ -32,28 +32,28 @@ function checkPlayerWin(e) {
   const c3 = query('#c-3').getAttribute('player');
 
   if (a1 !== 'velha' && a2 === a1 && a3 === a2) {
-    return console.log(`${a1} ganhow`);
+    return playWin (a1);
   }
   else if (a1 !== 'velha' && b1 === a1 && c1 === a1) {
-    return console.log(`${a1} ganhow`);
+    return playWin (a1);
   }
   else if (a1 !== 'velha' && b2 === a1 && c3 === a1) {
-    return console.log(`${a1} ganhow`);
+    return playWin (a1);
   }
   else if (a3 !== 'velha' && b2 === a3 && c1 === a3) {
-    return console.log(`${a3} ganhow`);
+    return playWin (a3);
   }
   else if (b1 !== 'velha' && b2 === b1 && b3 === b2) {
-    return console.log(`${b1} ganhow`);
+    return playWin(b1);
   }
   else if (c1 !== 'velha' && c2 === c1 && c3 === c2) {
-    return console.log(`${c1} ganhow`);
+    return playWin(c1);
   }
   else if (a2 !== 'velha' && c2 === a2 && b2 === c2) {
-    return console.log(`${a2} ganhow`);
+    return playWin(a2);
   }
   else if (a3 !== 'velha' && c3 === a3 && b3 === c3) {
-    return console.log(`${a3} ganhow`);
+    return playWin(a3);
   }  
   return console.log('joque!');
 }
@@ -65,6 +65,36 @@ const erroBloco = () => {
   setTimeout(() => {
     loc.innerHTML = `<p class="alert-blank> </p>`;
   }, 2500);
+}
+
+const erroEndGame = () => {
+  const loc = query('.alert');
+  loc.innerHTML = `<p class="alert-red"> O game acabou!</p>`;
+  setTimeout(() => {
+    loc.innerHTML = `<p class="alert-blank> </p>`;
+  }, 2500);
+}
+
+const winClr = () => {
+  const loc = query('#win');
+  setTimeout(() => {
+    loc.innerHTML = `<div class="win"> <p"> <samp> <h3> </h3> </samp> <br>  </p> </div>`;
+  }, 2900);
+}
+const playWin = (play) => {
+  const player = play;
+  const loc = query('#win');
+  loc.innerHTML = `<div class="winner"> <p><samp><h3>${player} Ganhow !!!!!</h3></samp> <br> Comcecar novo game? </p> </div>`;
+  winClr(); gameOver.status = true;
+  setTimeout(() => {
+    const alvo = queryAll('.bloco');
+    alvo.forEach((bloco) => {
+      bloco.classList = ('bloco');
+      bloco.setAttribute('player', 'velha');
+      bloco.addEventListener('click', addPlayerCheck);
+    })
+  }, 3000);
+
 }
 
 let atualPlayer = player1;
@@ -82,7 +112,10 @@ function addPlayerCheck(event) {
   const playerBlock = bloco.innerHTML;
   if (playerBlock !== '-') {
     return erroBloco();
-  } else {
+  } else if (gameOver.status === true) {
+    return erroEndGame();
+  }
+  else {
     bloco.classList.add('activeO')
     bloco.innerHTML = atualPlayer.style;
     bloco.setAttribute('player', `${atualPlayer.name}`);
