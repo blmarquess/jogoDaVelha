@@ -3,6 +3,7 @@
 * {
   margin: 0;
   box-sizing: 0;
+  transition: 400ms;
 }
 
 h1 {
@@ -20,7 +21,7 @@ body {
   align-self:center;
   align-content: center;
   padding: 1rem;
-  background-color: rgba(170, 178, 201, 0.342);
+  background-color: rgba(99, 3, 99, 0.959);
 }
 
 main { 
@@ -90,6 +91,7 @@ main {
   align-items: flex-end;
   align-self: center;
   font-size: 5rem;
+  padding: 0.5rem;
 }
 
 .activeX {
@@ -99,6 +101,8 @@ main {
   align-items: flex-end;
   align-self: center;
   font-size: 5rem;
+  padding: 0.5rem;
+  transition: 400ms;
 }
 
 .placar {
@@ -129,6 +133,7 @@ main {
   font-weight: 500;
   outline: lightpink;
   padding: 1rem;
+
 }
 
 .winner{
