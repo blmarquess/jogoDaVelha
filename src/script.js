@@ -25,18 +25,19 @@ function checkPlayerWin() {
   const c1 = query('#c-1').getAttribute('player');
   const c2 = query('#c-2').getAttribute('player');
   const c3 = query('#c-3').getAttribute('player');
+  const velha = [a1, a2, a3, b1, b2, b3, c1, c2, c3];
 
   if (a1 !== 'velha' && a2 === a1 && a3 === a2) {
-    return playWin (a1);
+    return playWin(a1);
   }
   else if (a1 !== 'velha' && b1 === a1 && c1 === a1) {
-    return playWin (a1);
+    return playWin(a1);
   }
   else if (a1 !== 'velha' && b2 === a1 && c3 === a1) {
-    return playWin (a1);
+    return playWin(a1);
   }
   else if (a3 !== 'velha' && b2 === a3 && c1 === a3) {
-    return playWin (a3);
+    return playWin(a3);
   }
   else if (b1 !== 'velha' && b2 === b1 && b3 === b2) {
     return playWin(b1);
@@ -49,8 +50,13 @@ function checkPlayerWin() {
   }
   else if (a3 !== 'velha' && c3 === a3 && b3 === c3) {
     return playWin(a3);
-  }  
-  return ;
+  }
+  else if (velha.every(elem => elem !== 'velha')){
+    return deuVelha();
+  }
+  else {
+    return;
+  }
 }
 
 // placar
@@ -90,6 +96,16 @@ const erroEndGame = () => {
   }, 2500);
 }
 
+const deuVelha = () => {
+  const loc = query('.alert');
+  loc.innerHTML = `<p class="alert-red"> DEU VELHA!</p>`;
+  setTimeout(winClr, 2200);
+  setTimeout(observer, 1950);
+  setTimeout(() => {
+    loc.innerHTML = `<p class="alert-blank> </p>`;
+  }, 2500);
+};
+
 const winClr = () => {
   const loc = query('#win');
   scoreActual()
@@ -127,7 +143,7 @@ function addPlayerCheck(event) {
     return erroEndGame();
   }
   else {
-    bloco.classList.add('activeO')
+    // bloco.classList.add('activeO')
     bloco.innerHTML = atualPlayer.style;
     bloco.setAttribute('player', `${atualPlayer.name}`);
   }
