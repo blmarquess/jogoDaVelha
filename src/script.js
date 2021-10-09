@@ -2,11 +2,6 @@ const query = (p) => document.querySelector(p);
 const queryAll = (p) => document.querySelectorAll(p);
 const make = (p) => document.createElement(p);
 
-const scorePlate = () => {
-  const placar = make('section');
-  query(main).appendChild(placar);
-}
-
 const player1 = {
   name: 'Você',
   style: `<i class="far fa-times-circle activeX"></i>`,
@@ -20,7 +15,7 @@ const player2 = {
 const gameOver = {status: false};
 
 // regra de jogo
-function checkPlayerWin(e) {
+function checkPlayerWin() {
   const a1 = query('#a-1').getAttribute('player');
   const a2 = query('#a-2').getAttribute('player');
   const a3 = query('#a-3').getAttribute('player');
@@ -55,8 +50,28 @@ function checkPlayerWin(e) {
   else if (a3 !== 'velha' && c3 === a3 && b3 === c3) {
     return playWin(a3);
   }  
-  return console.log('joque!');
+  return ;
 }
+
+// placar
+const newPoint = () => {
+  if (player1.name === atualPlayer.name) {
+    return player1.score = player1.score + 1; scoreActual();
+  } else if (player2.name === atualPlayer.name) {
+    return player2.score = player2.score + 1; scoreActual();
+  } else {
+    return;
+  }
+}
+
+function scoreActual() {
+  const local = query('.players');
+  const newPlacar = `
+  <li class="player1">Você score : ${player1.score}</li>
+  <li class="player1">NodePlay score : ${player2.score}</li>`;
+  local.innerHTML = newPlacar;
+};
+
 
 // engine
 const erroBloco = () => {
@@ -77,24 +92,20 @@ const erroEndGame = () => {
 
 const winClr = () => {
   const loc = query('#win');
+  scoreActual()
   setTimeout(() => {
     loc.innerHTML = `<div class="win"> <p"> <samp> <h3> </h3> </samp> <br>  </p> </div>`;
-  }, 2900);
+    gameOver.status = false;
+  }, 1900);
 }
 const playWin = (play) => {
   const player = play;
   const loc = query('#win');
-  loc.innerHTML = `<div class="winner"> <p><samp><h3>${player} Ganhow !!!!!</h3></samp> <br> Comcecar novo game? </p> </div>`;
+  loc.innerHTML = `<div class="winner"> <p><samp><h3>${player} Ganhow !!!!!</h3></samp>
+  <br> Comcecar novo game? </p> </div>`;
+  newPoint();
   winClr(); gameOver.status = true;
-  setTimeout(() => {
-    const alvo = queryAll('.bloco');
-    alvo.forEach((bloco) => {
-      bloco.classList = ('bloco');
-      bloco.setAttribute('player', 'velha');
-      bloco.addEventListener('click', addPlayerCheck);
-    })
-  }, 2950);
-
+  setTimeout(observer, 1950);
 }
 
 let atualPlayer = player1;
@@ -109,8 +120,8 @@ function changerPlayer() {
 
 function addPlayerCheck(event) {
   const bloco = event.target
-  const playerBlock = bloco.innerHTML;
-  if (playerBlock !== '-') {
+  const playerBlock = bloco.getAttribute('player', 'velha');
+  if (playerBlock !== 'velha') {
     return erroBloco();
   } else if (gameOver.status === true) {
     return erroEndGame();
@@ -120,15 +131,19 @@ function addPlayerCheck(event) {
     bloco.innerHTML = atualPlayer.style;
     bloco.setAttribute('player', `${atualPlayer.name}`);
   }
-  changerPlayer();
   checkPlayerWin();
+  changerPlayer();
 };
 
 const observer = () => {
   const alvo = queryAll('.bloco');
   alvo.forEach((bloco) => {
-  bloco.addEventListener('click', addPlayerCheck);
+    bloco.classList = ('bloco');
+    bloco.setAttribute('player', 'velha');
+    bloco.innerHTML = '';
+    bloco.addEventListener('click', addPlayerCheck);
   })
 }
 
 observer();
+scoreActual();
