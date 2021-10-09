@@ -25,7 +25,7 @@ function checkPlayerWin() {
   const c1 = query('#c-1').getAttribute('player');
   const c2 = query('#c-2').getAttribute('player');
   const c3 = query('#c-3').getAttribute('player');
-  // const velha = queryAll('.bloco');
+  const velha = [a1, a2, a3, b1, b2, b3, c1, c2, c3];
 
   if (a1 !== 'velha' && a2 === a1 && a3 === a2) {
     return playWin(a1);
@@ -51,9 +51,9 @@ function checkPlayerWin() {
   else if (a3 !== 'velha' && c3 === a3 && b3 === c3) {
     return playWin(a3);
   }
-  // else if (velha.every(elem => elem.attributes.player !== 'velha')){
-  //   return deuVelha();
-  // }
+  else if (velha.every(elem => elem !== 'velha')){
+    return deuVelha();
+  }
   else {
     return;
   }
@@ -143,7 +143,7 @@ function addPlayerCheck(event) {
     return erroEndGame();
   }
   else {
-    bloco.classList.add('activeO')
+    // bloco.classList.add('activeO')
     bloco.innerHTML = atualPlayer.style;
     bloco.setAttribute('player', `${atualPlayer.name}`);
   }
