@@ -10,7 +10,7 @@ h1 {
   padding: 1rem;
   color: rgba(255, 250, 254, 0.925);
   background-color: teal;
-  border-radius: 1.4rem;
+  border-radius: 1rem;
   margin-top: 0;
 }
 
@@ -34,8 +34,8 @@ main {
   justify-content: center;
   align-self: stretch;
   font-family: 'Poppins', sans-serif;
-  /* padding: 0.3rem; */
-  border-radius: 1.4rem;
+  border: solid 0 5px 0 5px rgba(0, 0, 0, 0.384);
+  border-radius: 1rem;
   outline-style: groove 1px;
   outline-color: thistle 1px;
 }
@@ -45,7 +45,7 @@ main {
   flex-direction: row;
   justify-content: center;
   padding: 2rem;
-  border-radius: 1.4rem;
+  border-radius: 1rem;
 }
 
 #coluna1 {
@@ -120,7 +120,7 @@ main {
 
 .alert-red{
   background-color: rgba(255, 142, 122, 0.753);
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 .win {
@@ -133,7 +133,7 @@ main {
 
 .winner{
   background-color: rgba(126, 255, 122, 0.788);
-  border-radius: 2rem;
+  border-radius: 1rem;
   color:rgb(3, 82, 3);
   text-align: center;
   font-weight: 500;
