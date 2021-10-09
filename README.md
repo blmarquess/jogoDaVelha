@@ -14,6 +14,9 @@ Nos propomos a fazer um jogo da velha utilizando apenas HTML CSS e JavaScript Pu
 ![img do game](https://raw.githubusercontent.com/blmarquess/jogoDaVelha/main/gameExemple.png)
 
 </div>
+div 
+
+<div> Link de demostração : https://youtu.be/9jvKj9jPOss </div> <br>
 
 <br>
 <div  align="center">
