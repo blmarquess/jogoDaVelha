@@ -55,15 +55,38 @@ function checkPlayerWin() {
     return deuVelha();
   }
   else {
-    return;
+    return; //autoPlay(velha.filter(elem => elem === 'velha').length)
   }
 }
 
+// automatce player
+const autoPlay = () => {
+  const blocos = queryAll('.bloco');
+  const blocosLivres = [];
+  blocos.forEach(bloco => {
+    const test = bloco.getAttribute('player');
+    if (test === 'velha') {
+      return blocosLivres.push(bloco);
+    }
+  });
+
+  if (blocosLivres.length === 0) {
+    return checkPlayerWin();
+  }
+  else {
+    const match = Math.floor(Math.random() * blocosLivres.length );
+    const jogada = blocosLivres[match];
+    jogada.innerHTML = player2.style;
+    jogada.setAttribute('player', `${player2.name}`);
+    checkPlayerWin()
+  }  
+};
+
 // placar
-const newPoint = () => {
-  if (player1.name === atualPlayer.name) {
+const newPoint = (player) => {
+  if (player === 'Você') {
     return player1.score = player1.score + 1; scoreActual();
-  } else if (player2.name === atualPlayer.name) {
+  } else if (player === 'NodePlay') {
     return player2.score = player2.score + 1; scoreActual();
   } else {
     return;
@@ -103,7 +126,7 @@ const deuVelha = () => {
   setTimeout(observer, 1950);
   setTimeout(() => {
     loc.innerHTML = `<p class="alert-blank> </p>`;
-  }, 2500);
+  }, 1250);
 };
 
 const winClr = () => {
@@ -119,12 +142,12 @@ const playWin = (play) => {
   const loc = query('#win');
   loc.innerHTML = `<div class="winner"> <p><samp><h3>${player} Ganhow !!!!!</h3></samp>
   <br> Comcecar novo game? </p> </div>`;
-  newPoint();
+  newPoint(player);
   winClr(); gameOver.status = true;
-  setTimeout(observer, 1950);
+  setTimeout(observer, 1250);
 }
 
-let atualPlayer = player1;
+// let atualPlayer = player1;
 
 function changerPlayer() {
   if (atualPlayer !== player1) {
@@ -144,11 +167,13 @@ function addPlayerCheck(event) {
   }
   else {
     // bloco.classList.add('activeO')
-    bloco.innerHTML = atualPlayer.style;
-    bloco.setAttribute('player', `${atualPlayer.name}`);
+    bloco.innerHTML = player1.style;
+    bloco.setAttribute('player', `${player1.name}`);
   }
+  setTimeout(autoPlay, 1500)
   checkPlayerWin();
-  changerPlayer();
+  // checkPlayerWin();
+  // changerPlayer();
 };
 
 const observer = () => {
